@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Feedback from "../components/Feedback"
 import Grade from "../components/Grade"
-import Request from "./APIRequest";
+// import Request from "./APIRequest";
 
 
 function Description(props) {
@@ -21,37 +21,37 @@ function Description(props) {
   const [aspect_percentage, setAspectPercentage] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const handleSendData = async () => {
-        setLoading(true)
-        try {
-          const result = await Request.sendData();
-          await new Promise((resolve) => setTimeout(resolve, 2000))
-          setPercentage(result.audio_percentage);
-          setLengthPercentage(result.length_percentage);
-          setlboolean(result.l_boolean);
-          setResolutionPercentage(result.resolution_percentage);
-          setDips(result.dips);
-          setMean(result.mean);
-          setPeaks(result.peaks);
-          setSeconds(result.l_seconds);
-          setWidth(result.width);
-          setHeight(result.height);
-          setAspectPercentage(result.aspect_percentage)
-          setTotal(result.audio_percentage + result.length_percentage + result.resolution_percentage + result.aspect_percentage);
-          setAspectRatio(result.aspect_ratio);
-          setLoading(false);
-        } catch(e) {
-          console.log(e);
-        }
-      };
+    // const handleSendData = async () => {
+    //     setLoading(true)
+    //     try {
+    //       const result = await Request.sendData();
+    //       await new Promise((resolve) => setTimeout(resolve, 2000))
+    //       setPercentage(result.audio_percentage);
+    //       setLengthPercentage(result.length_percentage);
+    //       setlboolean(result.l_boolean);
+    //       setResolutionPercentage(result.resolution_percentage);
+    //       setDips(result.dips);
+    //       setMean(result.mean);
+    //       setPeaks(result.peaks);
+    //       setSeconds(result.l_seconds);
+    //       setWidth(result.width);
+    //       setHeight(result.height);
+    //       setAspectPercentage(result.aspect_percentage)
+    //       setTotal(result.audio_percentage + result.length_percentage + result.resolution_percentage + result.aspect_percentage);
+    //       setAspectRatio(result.aspect_ratio);
+    //       setLoading(false);
+    //     } catch(e) {
+    //       console.log(e);
+    //     }
+    //   };
 
-      if (props.fileExists == true) {
-        handleSendData();
-      }
+    //   if (props.fileExists == true) {
+    //     handleSendData();
+    //   }
 
-    }, [props.fileExists]);
+    // }, [props.fileExists]);
 
   return ( 
     <>

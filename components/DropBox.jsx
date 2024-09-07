@@ -1,5 +1,5 @@
 import FileDrop from "./FileDrop"
-import Request from "./APIRequest"
+// import Request from "./APIRequest"
 import Video from "./Video";
 import Grade from "./Grade"
 import { useEffect, useState } from "react";
@@ -13,22 +13,7 @@ function DropBox (props) {
 
     }
 
-    useEffect(() => {
-        const postVideoFunc = async () => {
-            try {
-                const result = await Request.postVideo(File, "video.mp4");
-                props.doesFileExists(true);
-            } finally {
-                console.log("finally");
-            }
-        }
-
-        if (File) {
-            postVideoFunc();
-        }
-        
-    }, [File])
-
+ 
     return (
         <>
             {File ?  <Video videoId={File} videoFile={File}/> : <FileDrop getFile={getFile}/>}
